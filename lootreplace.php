@@ -46,18 +46,20 @@
 			"models/props_junk/glassjug01.mdl",
 			"models/props_combine/breenbust.mdl",
 			"models/Gibs/Antlion_gib_Large_2.mdl",
+			"models/props_lab/clipboard.mdl",
 			"models/props/de_tides/vending_turtle.mdl");
 		
 		$code = $_GET['codes'];
 		$length = count($array);
 		$changed = 0;
 		
-		$newCode = preg_replace('/models\/props_lab\/clipboard.mdl/', $array[rand(0, $length-1)], $code, 1, $count);
+		$code = str_replace("models/props_lab/clipboard.mdl", "placeholder", $code);
+		$newCode = preg_replace('/placeholder/', $array[rand(0, $length-1)], $code, 1, $count);
 		$changed = $count;
 		
 		while($changed > 0)
 		{
-			$newCode = preg_replace('/models\/props_lab\/clipboard.mdl/', $array[rand(0, $length-1)], $newCode, 1, $count);
+			$newCode = preg_replace('/placeholder/', $array[rand(0, $length-1)], $newCode, 1, $count);
 			$changed = $count;
 		}
 		
@@ -73,7 +75,7 @@
         <input type="submit">
 	</form>
 	<hr />
-	<p>This page will convert a loot.txt for Garry's Mod Murder to be full of random loot. If you need help, read the steps below and then see contact info on <a href="index.php">my main page.</a></p>
+	<p>This page will convert a loot.txt for Garry's Mod Murder to be full of random loot. If you need help, read the steps below and then see contact info on <a href="index.php">my main page.</a> Worried about how it works? - Source on Github <a href="https://github.com/itsatacoshop247/murderlootreplacer">here</a>.</p>
 	<br />
 	<p><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Gmodlogo.svg/220px-Gmodlogo.svg.png" width="150px"><img src="img/murder.jpg" width="150px"</p>
 	<br />
